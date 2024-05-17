@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        margin: 0;
+        display: flex;
+      }
+ 
+      .red {
+        background-color: red;
+        width: 50vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .round{
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background-color: white;
+        position: absolute;
+         border:2px solid rgb(80, 79, 79) ;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         font-size: 20px;
+      }
+      .rounder{
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background-color: white;
+        position: absolute;
+         border:2px solid rgb(80, 79, 79) ;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         font-size: 20px;
+      }
+ 
+ 
+      .blue {
+        background-color: blue;
+        width: 50vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="red">
+        <div class="round"></div>
+    </div>
+    <div class="blue">
+        <div class="rounder"></div>
+    </div>
+    <script>
+      const red = document.getElementsByClassName("red")[0];
+      const blue = document.getElementsByClassName("blue")[0];
+      const round = document.getElementsByClassName("round")[0];
+      const rounder = document.getElementsByClassName("rounder")[0];
+ 
+      let redWidth = 50;
+      let blueWidth = 50;
+      let count = 0 ;
+      let sum = 0;
+ 
+      red.onclick = changeToRedWidth;
+      blue.onclick = changeToBlueWidth;
+      document.addEventListener("keydown", handleKeydown);
+ 
+      function changeToRedWidth() {
+        redWidth++;
+        blueWidth--;
+        red.style.width = `${redWidth}vw`;
+        blue.style.width = `${blueWidth}vw`;
+        count ++;
+        round.textContent = count;
+      }
+      function changeToBlueWidth() {
+        redWidth--;
+        blueWidth++;
+        red.style.width = `${redWidth}vw`;
+        blue.style.width = `${blueWidth}vw`;
+        sum ++;
+        rounder.textContent = sum;
+      }
+      function handleKeydown(event) {
+        if (event.key === 'l' || event.key === 'L') {
+          changeToRedWidth();
+        } else if (event.key === 'r' || event.key === 'R') {
+         changeToBlueWidth();
+        }
+      }
+ 
+    </script>
+  </body>
+</html>
